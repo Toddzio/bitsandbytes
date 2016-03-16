@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @board.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @board.user.email %>
+</p>
+
+<% @entries.each do |entry| %>
+  <h3><%= link_to entry.url, entry.url %></h3>
+  <p><%= entry.note %></p>
+  <p><%= entry.upvote %></p>
+  <%= button_to('Destroy', board_entry_path, :method => 'delete', :class => 'btn btn-large btn-primary')  %>
+<% end %>
+
+<%= link_to 'Create a New Entry', new_board_entry_path(@board) %><br>
+<%= link_to 'Edit', edit_board_path(@board) %> |
+<%= link_to 'Back', boards_path %>

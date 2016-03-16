@@ -1,0 +1,9 @@
+<%= form_for @entries do |f|%>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :upvote, value: 1 %>
+  <%= f.label :URL %><br>
+  <%= f.text_field :url %><br>
+  <%= f.label :note %><br>
+  <%= f.text_field :note %><br>
+  <%= f.submit "New Entry", :class => 'btn btn-primary btn-sm' %>
+<% end %>
